@@ -108,6 +108,18 @@ func deleteUser(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusNoContent)
 }
 
+// Start main page/ Greeting page
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}
+	_, err := fmt.Fprint(w, "Hello, I'm waiting for your requests!")
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
+}
+
 func main() {
 	initDB()
 	defer db.Close()
@@ -118,6 +130,8 @@ func main() {
 	r.HandleFunc("/users/{id}", getUser).Methods("GET")
 	r.HandleFunc("/users/{id}", updateUser).Methods("PUT")
 	r.HandleFunc("/users/{id}", deleteUser).Methods("DELETE")
+
+	r.HandleFunc("/", indexHandler)
 
 	fmt.Println("Сервер запущен на порту :8080")
 	log.Fatal(http.ListenAndServe(":8080", r))

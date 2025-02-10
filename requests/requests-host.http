@@ -1,0 +1,36 @@
+
+### get all users
+GET https://golang-crud-obcf.onrender.com/users
+Accept: application/json
+Content-Type: application/json
+
+### create one user
+POST https://golang-crud-obcf.onrender.com/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Короткевич Геннадий",
+  "age": 30
+}
+### Get one user by id
+GET https://golang-crud-obcf.onrender.com/users/1
+Accept: application/json
+Content-Type: application/json
+
+### Update user by id
+PUT https://golang-crud-obcf.onrender.com/users/2
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Caban",
+  "age": 35
+}
+
+### delete user by id
+DELETE https://golang-crud-obcf.onrender.com/users/1
+Accept: application/json
+Content-Type: application/json
+
+
