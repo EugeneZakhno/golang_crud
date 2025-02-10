@@ -23,7 +23,7 @@ var db *sql.DB
 // Инициализация базы данных
 func initDB() {
 	var err error
-	connStr := "godbtest_user:lUDEQDsf2MrpRu80RajTBSOG70RNBcY4@dpg-cu74g1q3esus73fg1beg-a.oregon-postgres.render.com/godbtest_21mb"
+	connStr := "postgresql://godbtest_user:lUDEQDsf2MrpRu80RajTBSOG70RNBcY4@dpg-cu74g1q3esus73fg1beg-a.oregon-postgres.render.com/godbtest_21mb"
 	db, err = sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal(err)
@@ -38,7 +38,6 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer rows.Close()
-
 	var users []User
 	for rows.Next() {
 		var user User
@@ -48,7 +47,6 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 		}
 		users = append(users, user)
 	}
-
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(users)
 }
@@ -66,7 +64,6 @@ func createUser(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(user)
 }
@@ -80,7 +77,6 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusNotFound)
 		return
 	}
-
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(user)
 }
@@ -93,13 +89,11 @@ func updateUser(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
 	}
-
 	_, err := db.Exec("UPDATE users SET name=$1, age=$2 WHERE id=$3", user.Name, user.Age, params["id"])
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
 	w.WriteHeader(http.StatusNoContent)
 }
 
@@ -111,7 +105,6 @@ func deleteUser(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
 	w.WriteHeader(http.StatusNoContent)
 }
 
@@ -126,6 +119,6 @@ func main() {
 	r.HandleFunc("/users/{id}", updateUser).Methods("PUT")
 	r.HandleFunc("/users/{id}", deleteUser).Methods("DELETE")
 
-	fmt.Println("Сервер запущен на порту :8000")
-	log.Fatal(http.ListenAndServe(":8000", r))
+	fmt.Println("Сервер запущен на порту :8080")
+	log.Fatal(http.ListenAndServe(":8080", r))
 }
