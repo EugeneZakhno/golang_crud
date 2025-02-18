@@ -10,8 +10,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Короткевич Геннадий",
-  "age": 30
+  "name": "Иосиф Сталин",
+  "age": 68
 }
 ### Get one user by id
 GET https://golang-crud-obcf.onrender.com/users/1
