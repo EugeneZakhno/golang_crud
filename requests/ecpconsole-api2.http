@@ -1,0 +1,10 @@
+### get token
+POST http://testraut.beget.tech/proxy.php?url=https://openapi-entry-api2.intervale.ru/api/v4/021E570CA199603CC8FC2DB7FB6FE238/token
+Accept: application/json
+Content-Type: application/json
+
+
+### get token 2
+POST https://openapi-entry-api2.intervale.ru/api/v4/021E570CA199603CC8FC2DB7FB6FE238/token
+Accept: application/json
+Content-Type: application/json
