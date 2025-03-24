@@ -5,9 +5,19 @@ Accept: application/json
 Content-Type: application/json
 
 
+
+
+### start
+POST http://testurs0.beget.tech/proxy.php?url=https://openapi-entry-ftest.intervale.ru/api/v4/TEST1WEB000000000000000000000001/payment/LE75UYA2RI07V5D0/start
+Accept: */*
+Content-Type: x-www-form-urlencoded
+
+##src.type=card&src.pan=4522049014353922&amount=12530&commission=0&currency=RUB&paymentId=ecomm_techworld&returnUrl=https://google.com&src.csc=888&src.expiry=1127&src.userId=z2fg5o789
+src.type=card&src.pan=4522049014353922&amount=23992&commission=0&currency=RUB&paymentId=ecomm_techworld&returnUrl=https%3A%2F%2Freturn3DS.intervale.ru&src.csc=666&src.expiry=0226&src.userId=dd234f678h0
+
 ### start
 POST http://testurs0.beget.tech/proxy.php?url=https://openapi-entry-ftest.intervale.ru/api/v4/TEST1WEB000000000000000000000001/payment/MS75UYA2RI07V5DG/start
-Accept: application/json
+Accept: */*
 Content-Type: application/json
 
 {
