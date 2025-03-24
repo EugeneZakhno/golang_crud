@@ -1,0 +1,24 @@
+
+### create token
+POST http://testurs0.beget.tech/proxy.php?url=https://openapi-entry-ftest.intervale.ru/api/v4/TEST1WEB000000000000000000000001/token
+Accept: application/json
+Content-Type: application/json
+
+
+### start
+POST http://testurs0.beget.tech/proxy.php?url=https://openapi-entry-ftest.intervale.ru/api/v4/TEST1WEB000000000000000000000001/payment/MS75UYA2RI07V5DG/start
+Accept: application/json
+Content-Type: application/json
+
+{
+"src.type":"card",
+"src.pan":"5404363010854837",
+"amount":10130,
+"commission":0,
+"currency":"RUB",
+"paymentId":"ecomm_techworld",
+"returnUrl":"https://return3DS.intervale.ru",
+"src.csc":"333",
+"src.expiry":"1229",
+"src.userId":"12fg5o789z"
+}
