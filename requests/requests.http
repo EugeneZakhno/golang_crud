@@ -10,8 +10,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Зохно Алексей",
-  "age": 13
+  "name": "Лепс Григорий",
+  "age": 59
 }
 ### Get one user by id
 GET http://localhost:8080/users/1
