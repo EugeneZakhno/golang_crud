@@ -18,7 +18,7 @@ GET https://golang-crud-obcf.onrender.com/users/1
 Accept: application/json
 Content-Type: application/json
 
-### Update user by id
+### Update user by ids
 PUT https://golang-crud-obcf.onrender.com/users/2
 Accept: application/json
 Content-Type: application/json
